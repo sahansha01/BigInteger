@@ -14,7 +14,7 @@ typedef struct {
 BIGINT* add(BIGINT* num1,BIGINT* num2);
 BIGINT* mul(BIGINT *n1,BIGINT*n2);
 BIGINT* mod(BIGINT *num1,BIGINT*num2);
-BIGINT*subtract(BIGINT* num1, BIGINT* num2);
+BIGINT*sub(BIGINT* num1, BIGINT* num2);
 BIGINT* div1(BIGINT*num1,BIGINT*num2);
 int compare(BIGINT*num1,BIGINT*num2,char*c);
 BIGINT* initialize();
@@ -132,7 +132,7 @@ void display(BIGINT *num)
     }
     display_reverse(num->head);
 }
-BIGINT*subtract(BIGINT* num1, BIGINT* num2){
+BIGINT*sub(BIGINT* num1, BIGINT* num2){
     
     node*l1=num1->head,*l2=num2->head;
     BIGINT *num3=(BIGINT*)malloc(sizeof(BIGINT));
@@ -275,7 +275,7 @@ num3->size = 0;
     else if(num1->sign=='-' )
     {
       num1->sign='+';
-      num3=subtract(num2,num1);
+      num3=sub(num2,num1);
       num1->sign='-';
       num3->sign=cmp(num1,num2);
       return num3;
@@ -283,7 +283,7 @@ num3->size = 0;
     else if(num2->sign=='-')
     {
       num2->sign='+';
-      num3=subtract(num1,num2);
+      num3=sub(num1,num2);
       num2->sign='-';
             num3->sign=cmp(num1,num2);
       return num3;
@@ -374,7 +374,7 @@ BIGINT* mul(BIGINT *n1,BIGINT*n2)
     return result;
 }
 
- /*   void main(){
+  void main(){
         BIGINT *num1,*num2,*num3;
     num1=initialize();
 
@@ -388,8 +388,8 @@ BIGINT* mul(BIGINT *n1,BIGINT*n2)
     num3=add(num1,num2);
      display(num3);
     printf("\n");
-    printf("subtraction: ");
-    num3=subtract(num1,num2);
+    printf("sub: ");
+    num3=sub(num1,num2);
        display(num3);
        free(num3);
     printf("\n");
@@ -400,5 +400,5 @@ BIGINT* mul(BIGINT *n1,BIGINT*n2)
     display(num3);
     printf("\n");
    free(num3);
-    }*/
+    }
          
